@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppActivosFijosWJCQ.BusinessLayer.Interface;
 using AppActivosFijosWJCQ.Entity;
 using AppActivosFijosWJCQ.Entity.Model;
 using AppActivosFijosWJCQ.DAL;
