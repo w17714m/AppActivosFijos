@@ -4,15 +4,26 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AppActivosFijosWJCQ.BusinessLayer;
+using System.Web;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
+    [AgregarLog]
     public class ValuesController : ApiController
     {
+        
+
+        public ValuesController()
+        {
+            HttpContext.Current.Session["valor"] = "prueba";
+        }
+
         // GET api/values
+        [AutenticacionToken(ValidarAutorizacion = true)]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1", "", ""};
         }
 
         // GET api/values/5

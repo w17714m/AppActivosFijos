@@ -109,9 +109,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppActivosFijosWJCQ\AppActivosFijosWJCQ.csproj">
+    <ProjectReference Include="..\AppActivosFijosWJCQ\AppActivosFijosWJCQ.WebApi.csproj">
       <Project>{1521CE56-82CC-400F-A2B5-1EFB217F96D6}</Project>
-      <Name>AppActivosFijosWJCQ</Name>
+      <Name>AppActivosFijosWJCQ.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
