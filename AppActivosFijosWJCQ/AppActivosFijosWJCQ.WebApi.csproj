@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>App_Data\AppActivosFijosWJCQ.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -227,11 +228,10 @@
     <Compile Include="AutenticacionToken.cs" />
     <Compile Include="Controllers\ActivosFijosController.cs" />
     <Compile Include="Controllers\AreaPersonaController.cs" />
-    <Compile Include="Controllers\AreaPersona_CiudadController.cs" />
     <Compile Include="Controllers\CiudadController.cs" />
     <Compile Include="Controllers\EstadoActualController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

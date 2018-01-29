@@ -15,8 +15,25 @@ namespace AppActivosFijosWJCQ.Entity
         }
         public DbSet<ActivosFijos> ActivosFijos { get; set; }
         public DbSet<AreaPersona> AreaPersona { get; set; }
-        public DbSet<AreaPersona_Ciudad> AreaPersona_Ciudad { get; set; }
         public DbSet<Ciudad> Ciudad { get; set; }
         public DbSet<EstadoActual> EstadoActual { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AreaPersona>()
+                           .HasMany<Ciudad>(c => c.Ciudad)
+                           .WithMany(c => c.AreaPersona)
+                           .Map(cs =>
+                           {
+                               cs.MapLeftKey("Id_AreaPersona");
+                               cs.MapRightKey("Id_Ciudad");
+                               cs.ToTable("AreaPersona_Ciudad");
+                               
+                           });
+
+
+            //base.OnModelCreating(modelBuilder);
+        }
     }
 }

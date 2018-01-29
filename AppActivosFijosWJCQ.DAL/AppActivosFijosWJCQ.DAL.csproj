@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivosFijosDAL.cs" />
-    <Compile Include="AreaPersonaCiudadDAL.cs" />
     <Compile Include="AreaPersonaDAL.cs" />
     <Compile Include="CiudadDAL.cs" />
     <Compile Include="EstadoActualDAL.cs" />

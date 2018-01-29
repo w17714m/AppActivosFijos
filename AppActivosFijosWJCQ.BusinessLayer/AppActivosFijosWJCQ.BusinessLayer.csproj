@@ -42,12 +42,10 @@
   <ItemGroup>
     <Compile Include="Concrete\ActivosFijosBL.cs" />
     <Compile Include="Concrete\AreaPersonaBL.cs" />
-    <Compile Include="Concrete\AreaPersona_CiudadBL.cs" />
     <Compile Include="Concrete\CiudadBL.cs" />
     <Compile Include="Concrete\EstadoActualBL.cs" />
     <Compile Include="Interface\IActivosFijosBL.cs" />
     <Compile Include="Interface\IAreaPersonaBL.cs" />
-    <Compile Include="Interface\IAreaPersona_CiudadBL.cs" />
     <Compile Include="Interface\ICiudadBL.cs" />
     <Compile Include="Interface\IEstadoActualBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

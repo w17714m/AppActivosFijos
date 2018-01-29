@@ -20,26 +20,56 @@ namespace AppActivosFijosWJCQ.Controllers
             this.CiudadBL = CiudadBL;
         }
 
+        /// <summary>
+        /// Agrega Ciudad
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad </param>
+        /// <returns>true y false según resultado</returns>
+        [HttpPost]
+        [Route("api/AddCiudad")]
         public bool AddCiudad(Ciudad pCiudad)
         {
             return CiudadBL.AddCiudad(pCiudad);
         }
-
+        /// <summary>
+        /// Borra Ciudad
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad </param>
+        /// <returns>true y false según resultado</returns>
+        [HttpPost]
+        [Route("api/DeleteCiudad")]
         public bool DeleteCiudad(Ciudad pCiudad)
         {
             return  CiudadBL.DeleteCiudad(pCiudad);
         }
-
+        /// <summary>
+        /// Edita Ciudad
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad </param>
+        /// <returns>true y false según resultado</returns>
+        [HttpPost]
+        [Route("api/EditCiudad")]
         public bool EditCiudad(Ciudad pCiudad)
         {
             return  CiudadBL.EditCiudad(pCiudad);
         }
-
+        /// <summary>
+        /// Obtiene Ciudades
+        /// </summary>
+        /// <returns>true y false según resultado</returns>
+        [HttpPost]
+        [Route("api/GetAllCiudad")]
         public IEnumerable<Ciudad> GetAllCiudad()
         {
             return  CiudadBL.GetAllCiudad();
         }
-
+        /// <summary>
+        /// Obtiene Ciudades
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad </param>
+        /// <returns>true y false según resultado</returns>
+        [HttpPost]
+        [Route("api/GetCiudad")]
         public IEnumerable<Ciudad> GetCiudad(Ciudad pCiudad)
         {
             return  CiudadBL.GetCiudad(pCiudad);

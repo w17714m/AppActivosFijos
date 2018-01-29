@@ -33,6 +33,8 @@ namespace AppActivosFijosWJCQ.Areas.HelpPage
             Justification = "Part of a URI.")]
         public static void Register(HttpConfiguration config)
         {
+            config.SetDocumentationProvider(new XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/AppActivosFijosWJCQ.xml")));
+
             //// Uncomment the following to use the documentation from XML documentation file.
             //config.SetDocumentationProvider(new XmlDocumentationProvider(HttpContext.Current.Server.MapPath("~/App_Data/XmlDocument.xml")));
 
@@ -53,7 +55,7 @@ namespace AppActivosFijosWJCQ.Areas.HelpPage
 #endif
 
             // Extend the following to use a preset object directly as the sample for all actions that support a media
-            // type, regardless of the body parameter or return type. The lines below avoid display of binary content.
+            // type, regardless of the body parameter or return type. The lines below a void display of binary content.
             // The BsonMediaTypeFormatter (if available) is not used to serialize the TextSample object.
             config.SetSampleForMediaType(
                 new TextSample("Binary JSON content. See http://bsonspec.org for details."),
@@ -61,7 +63,7 @@ namespace AppActivosFijosWJCQ.Areas.HelpPage
 
             //// Uncomment the following to use "[0]=foo&[1]=bar" directly as the sample for all actions that support form URL encoded format
             //// and have IEnumerable<string> as the body parameter or return type.
-            //config.SetSampleForType("[0]=foo&[1]=bar", new MediaTypeHeaderValue("application/x-www-form-urlencoded"), typeof(IEnumerable<string>));
+            config.SetSampleForType("[0]=foo&[1]=bar", new MediaTypeHeaderValue("application/x-www-form-urlencoded"), typeof(IEnumerable<string>));
 
             //// Uncomment the following to use "1234" directly as the request sample for media type "text/plain" on the controller named "Values"
             //// and action named "Put".

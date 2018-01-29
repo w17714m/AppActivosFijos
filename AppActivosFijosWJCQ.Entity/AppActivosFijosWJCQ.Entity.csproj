@@ -43,7 +43,6 @@
     <Compile Include="ActivosFijosContext.cs" />
     <Compile Include="Model\ActivosFijos.cs" />
     <Compile Include="Model\AreaPersona.cs" />
-    <Compile Include="Model\AreaPersona_Ciudad.cs" />
     <Compile Include="Model\Ciudad.cs" />
     <Compile Include="Model\EstadoActual.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

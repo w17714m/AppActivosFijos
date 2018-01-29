@@ -26,7 +26,7 @@ namespace AppActivosFijosWJCQ.DAL
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -76,11 +76,11 @@ namespace AppActivosFijosWJCQ.DAL
 
                 using (var db = new ActivosFijosContext())
                 {
-                    vAreaPersona = db.AreaPersona.ToList();
+                    vAreaPersona = db.AreaPersona.Include("Ciudad").ToList();
                 }
                 return vAreaPersona;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }

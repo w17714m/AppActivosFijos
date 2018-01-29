@@ -10,7 +10,10 @@ namespace AppActivosFijosWJCQ.Controllers
 {
     public class TokenController : ApiController
     {
-
+        /// <summary>
+        /// Obtiene un token
+        /// </summary>
+        /// <returns>obtiene un token</returns>
         [HttpGet]
         [Route("apigeneratetoken/gettoken")]
         public string GetToken()
@@ -18,7 +21,10 @@ namespace AppActivosFijosWJCQ.Controllers
             HttpContext.Current.Session["token"] = Guid.NewGuid();
             return HttpContext.Current.Session["token"].ToString();
         }
-
+        /// <summary>
+        /// Obtiene el token actual
+        /// </summary>
+        /// <returns>Obtiene el token actual</returns>
         [HttpGet]
         [Route("apigeneratetoken/ActualToken")]
         public string ActualToken()

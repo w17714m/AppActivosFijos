@@ -13,7 +13,7 @@ namespace AppActivosFijosWJCQ
         {
             var container = new UnityContainer();
             container.RegisterType<IActivosFijosBL, ActivosFijosBL>();
-            container.RegisterType<IAreaPersona_CiudadBL, AreaPersona_CiudadBL>();
+            //container.RegisterType<IAreaPersona_CiudadBL, AreaPersona_CiudadBL>();
             container.RegisterType<IAreaPersonaBL, AreaPersonaBL>();
             container.RegisterType<ICiudadBL, CiudadBL>();
             container.RegisterType<IEstadoActualBL, EstadoActualBL>();

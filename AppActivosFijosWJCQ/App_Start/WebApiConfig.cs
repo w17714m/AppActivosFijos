@@ -23,6 +23,9 @@ namespace AppActivosFijosWJCQ
                     new Lazy<HttpControllerRouteHandler>(() => new SessionHttpControllerRouteHandler(), true));
             }
 
+            config.Formatters.JsonFormatter
+            .SerializerSettings
+            .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             // Rutas de API web
             config.MapHttpAttributeRoutes();

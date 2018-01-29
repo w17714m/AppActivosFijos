@@ -13,12 +13,12 @@ namespace AppActivosFijosWJCQ.Entity.Model
     {
         public Ciudad()
         {
-            AreaPersona_Ciudad = new HashSet<AreaPersona_Ciudad>();
+            this.AreaPersona = new HashSet<AreaPersona>();
         }
 
         [Key]
         public int Id_Ciudad { get; set; }
         public string Descripcion { get; set; }
-        public virtual ICollection<AreaPersona_Ciudad> AreaPersona_Ciudad { get; set; }
+        public virtual ICollection<AreaPersona> AreaPersona { get; set; }
     }
 }
