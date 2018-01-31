@@ -5,9 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace AppActivosFijosWJCQ.Entity.Model
 {
+    /// <summary>
+    /// Clase de activos fijos
+    /// </summary>
     [Table("ActivosFijos", Schema = "public")]
     public class ActivosFijos
     {
@@ -26,11 +30,12 @@ namespace AppActivosFijosWJCQ.Entity.Model
     public int Alto { get; set; }
     public int Ancho { get; set; }
     public int Largo { get; set; }
-    public  double ValorCompra { get; set; }
-    public TimeSpan FechaCompra { get; set; }
-    public TimeSpan FechaBaja { get; set; }
-
-    public EstadoActual EstadoActual { get; set; }
+    public decimal ValorCompra { get; set; }
+    public string FechaCompra { get; set; }
+    public string FechaBaja { get; set; }
+    public int Id_AreaPersona { get; set; }
+        public int Id_EstadoActual { get; set; }
+        public EstadoActual EstadoActual { get; set; }
     public AreaPersona AreaPersona { get; set; }
     }
 }

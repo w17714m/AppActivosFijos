@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppActivosFijosWJCQ.DAL</name>
+    </assembly>
+    <members>
+        <member name="T:AppActivosFijosWJCQ.DAL.ActivosFijosDAL">
+            <summary>
+            Clase de acceso a datos que permite la administración de activos fijos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.ActivosFijosDAL.#ctor">
+            <summary>
+            Constructor Activos Fijos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.ActivosFijosDAL.AddActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Agrega activos fijos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.ActivosFijosDAL.DeleteActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Borra Activos Fijos
+            </summary>
+            <param name="pActivosFijos">Entidad Activos Fijos</param>
+            <returns>true o false según el resultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.ActivosFijosDAL.EditActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Edita Activos Fijos
+            </summary>
+            <param name="pActivosFijos">Entidad Activos Fijos</param>
+            <returns>true o false según el resultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.ActivosFijosDAL.GetActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Obtiene Activos Fijos por filtro
+            </summary>
+            <param name="pActivosFijos">Entidad Activos Fijos</param>
+            <returns>Retorna lista tipo ActivosFijos</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.ActivosFijosDAL.GetAllActivosFijos">
+            <summary>
+            Retorna todos los activos fijos
+            </summary>
+            <returns>Retorna lista tipo ActivosFijos</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.DAL.AreaPersonaDAL">
+            <summary>
+            Clase Area o Persona de Acceso a Datos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.AreaPersonaDAL.#ctor">
+            <summary>
+            Constructor Area o Persona de Acceso a Datos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.AreaPersonaDAL.AddAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Agrega una nueva Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area o persona</param>
+            <returns>true o false según relsultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.AreaPersonaDAL.DeleteAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Borra una nueva Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area o persona</param>
+            <returns>true o false según relsultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.AreaPersonaDAL.EditAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Edita una nueva Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area o persona</param>
+            <returns>true o false según relsultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.AreaPersonaDAL.GetAllAreaPersona">
+            <summary>
+            Obtiene todas las Areas o Personas
+            </summary>
+            <returns>Lista AreaPersona</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.AreaPersonaDAL.GetAreaAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Obtiene una nueva Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area o persona</param>
+            <returns>Lista de Areas o Personas</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.DAL.CiudadDAL">
+            <summary>
+            Clase Ciudad de Acceso a Datos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.CiudadDAL.#ctor">
+            <summary>
+            Constructor Ciudad de Acceso a Datos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.CiudadDAL.AddCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Agrega una nueva Ciudad
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>true o false según resultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.CiudadDAL.DeleteCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Borra Ciudad
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>true o false según resultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.CiudadDAL.EditCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Edita Ciudad
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>true o false según resultado</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.CiudadDAL.GetAllCiudad">
+            <summary>
+            Obtiene todas las ciudades
+            </summary>
+            <returns>Lista De ciudades</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.CiudadDAL.GetCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Obtiene Ciudades por filtro
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>Lista de Ciudades</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.DAL.EstadoActualDAL">
+            <summary>
+            Clase Estado Actual de acceso a datos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.EstadoActualDAL.#ctor">
+            <summary>
+            Constructor Estado Actual
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.EstadoActualDAL.AddEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Agrega un nuevo Estado Actual
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>true o false según resultado.</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.EstadoActualDAL.DeleteEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Borra Estado Actual
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>true o false según resultado.</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.EstadoActualDAL.EditEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Edita Estado Actual
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>true o false según resultado.</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.EstadoActualDAL.GetAllEstadoActual">
+            <summary>
+            Obtiene todos los estados Actuales
+            </summary>
+            <returns>Lista Estados Actuales</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.DAL.EstadoActualDAL.GetEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Obtiene Lista Estado Actual por filtro
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>Lista Estado Actual</returns>
+        </member>
+    </members>
+</doc>

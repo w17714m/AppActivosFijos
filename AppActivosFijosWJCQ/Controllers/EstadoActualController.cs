@@ -7,16 +7,27 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
     /// <summary>
     /// Controllador para la entidad Estado Actual
     /// </summary>
+    /// 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [AgregarLog]
     public class EstadoActualController : ApiController
     {
+        /// <summary>
+        /// Instancia Estado Actual
+        /// </summary>
         IEstadoActualBL EstadoActualBL;
+
+        /// <summary>
+        /// Constructor Con injección de dependencia
+        /// </summary>
+        /// <param name="EstadoActualBL">Interfaz Estado Actual</param>
         public EstadoActualController(IEstadoActualBL EstadoActualBL)
         {
             this.EstadoActualBL = EstadoActualBL;
@@ -29,9 +40,30 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>verdadero o falso según resultado</returns>
         [HttpPost]
         [Route("api/AddEstadoActual")]
-        public bool AddEstadoActual(EstadoActual pEstadoActual)
+        public HttpResponseMessage AddEstadoActual(EstadoActual pEstadoActual)
         {
-            return new EstadoActualBL().AddEstadoActual(pEstadoActual);
+            try
+            {
+                var r = new EstadoActualBL().AddEstadoActual(pEstadoActual);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
+
+            
         }
         /// <summary>
         /// Borra Estado Actual
@@ -40,9 +72,28 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>verdadero o falso según resultado</returns>
         [HttpPost]
         [Route("api/DeleteEstadoActual")]
-        public bool DeleteEstadoActual(EstadoActual pEstadoActual)
+        public HttpResponseMessage DeleteEstadoActual(EstadoActual pEstadoActual)
         {
-            return new EstadoActualBL().DeleteEstadoActual(pEstadoActual);
+            try
+            {
+                var r = new EstadoActualBL().DeleteEstadoActual(pEstadoActual);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
         }
         /// <summary>
         /// Editar Estado Actual
@@ -51,9 +102,30 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>verdadero o falso según resultado</returns>
         [HttpPost]
         [Route("api/EditEstadoActual")]
-        public bool EditEstadoActual(EstadoActual pEstadoActual)
+        public HttpResponseMessage EditEstadoActual(EstadoActual pEstadoActual)
         {
-            return new EstadoActualBL().EditEstadoActual(pEstadoActual);
+
+            try
+            {
+                var r = new EstadoActualBL().EditEstadoActual(pEstadoActual);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
+            
         }
 
         /// <summary>
@@ -62,9 +134,30 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>Lista estadoactual</returns>
         [HttpGet]
         [Route("api/GetAllEstadoActual")]
-        public IEnumerable<EstadoActual> GetAllEstadoActual()
+        public HttpResponseMessage GetAllEstadoActual()
         {
-            return new EstadoActualBL().GetAllEstadoActual();
+            try
+            {
+                var r = new EstadoActualBL().GetAllEstadoActual();
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK,r );
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
+
+            
         }
         /// <summary>
         /// Obtiene Estado Actual por un filtro
@@ -73,9 +166,29 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("api/GetEstadoActual")]
-        public IEnumerable<EstadoActual> GetEstadoActual(EstadoActual pEstadoActual)
+        public HttpResponseMessage GetEstadoActual(EstadoActual pEstadoActual)
         {
-            return new EstadoActualBL().GetEstadoActual(pEstadoActual);
+
+            try
+            {
+                var r = new EstadoActualBL().GetEstadoActual(pEstadoActual);
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+            
         }
 
     }

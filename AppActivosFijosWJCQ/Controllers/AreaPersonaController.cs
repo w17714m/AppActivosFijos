@@ -7,14 +7,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
+    /// <summary>
+    /// Controlador Area Personal
+    /// </summary>
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [AgregarLog]
     public class AreaPersonaController : ApiController
     {
+        /// <summary>
+        /// Instancia Area Personal
+        /// </summary>
         IAreaPersonaBL AreaPersonaBL;
-
+        /// <summary>
+        /// Constructor con injección de dependencia
+        /// </summary>
+        /// <param name="AreaPersonaBL">Interfaz Area personal</param>
         public AreaPersonaController(IAreaPersonaBL AreaPersonaBL)
         {
             this.AreaPersonaBL = AreaPersonaBL;
@@ -27,9 +38,27 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/AddAreaPersona")]
-        public bool AddAreaPersona(AreaPersona pAreaPersona)
+        public HttpResponseMessage AddAreaPersona(AreaPersona pAreaPersona)
         {
-            return  AreaPersonaBL.AddAreaPersona(pAreaPersona);
+            try
+            {
+                var r = AreaPersonaBL.AddAreaPersona(pAreaPersona);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
         /// <summary>
         /// Borra Area Persona
@@ -38,9 +67,28 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/DeleteAreaPersona")]
-        public bool DeleteAreaPersona(AreaPersona pAreaPersona)
+        public HttpResponseMessage DeleteAreaPersona(AreaPersona pAreaPersona)
         {
-            return  AreaPersonaBL.DeleteAreaPersona(pAreaPersona);
+            try
+            {
+                var r = AreaPersonaBL.DeleteAreaPersona(pAreaPersona);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
         }
         /// <summary>
         /// Edita AreaPersona
@@ -49,9 +97,29 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/EditAreaPersona")]
-        public bool EditAreaPersona(AreaPersona pAreaPersona)
+        public HttpResponseMessage EditAreaPersona(AreaPersona pAreaPersona)
         {
-            return  AreaPersonaBL.EditAreaPersona(pAreaPersona);
+            try
+            {
+                var r = AreaPersonaBL.EditAreaPersona(pAreaPersona);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
+
         }
         /// <summary>
         /// Agrega AreaPersona
@@ -59,9 +127,26 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>Lista Area Persona</returns>
         [HttpPost]
         [Route("api/GetAllAreaPersona")]
-        public IEnumerable<AreaPersona> GetAllAreaPersona()
+        public HttpResponseMessage GetAllAreaPersona()
         {
-            return  AreaPersonaBL.GetAllAreaPersona();
+            try
+            {
+                var r = AreaPersonaBL.GetAllAreaPersona();
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message = string.Format("No se retornaron datos");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
         /// <summary>
         /// Obtiene Area Persona
@@ -70,9 +155,29 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>Lista Area Persona</returns>
         [HttpPost]
         [Route("api/GetAreaAreaPersona")]
-        public IEnumerable<AreaPersona> GetAreaAreaPersona(AreaPersona pAreaPersona)
+        public HttpResponseMessage GetAreaAreaPersona(AreaPersona pAreaPersona)
         {
-            return  AreaPersonaBL.GetAreaAreaPersona(pAreaPersona);
+            try
+            {
+                var r =AreaPersonaBL.GetAreaAreaPersona(pAreaPersona);
+                
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message = string.Format("No se retornaron datos");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
+
+
         }
     }
 }

@@ -5,9 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
+    /// <summary>
+    /// Controlador encargado de generar tokens
+    /// </summary>
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TokenController : ApiController
     {
         /// <summary>

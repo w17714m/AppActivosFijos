@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppActivosFijosWJCQ.BusinessLayer</name>
+    </assembly>
+    <members>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Concrete.ActivosFijosBL">
+            <summary>
+            Campa de negocio Activos Fijos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.ActivosFijosBL.AddActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Agrega Activos Fijos
+            </summary>
+            <param name="pActivosFijos">Clase Activos Fijos</param>
+            <returns>true o false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.ActivosFijosBL.DeleteActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Borra Activos Fijos
+            </summary>
+            <param name="pActivosFijos">Clase Activos Fijos</param>
+            <returns>true o false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.ActivosFijosBL.EditActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Edita Activos Fijos
+            </summary>
+            <param name="pActivosFijos">Clase Activos Fijos</param>
+            <returns>true o false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.ActivosFijosBL.GetActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
+            <summary>
+            Obtiene Activos Fijos por filtro
+            </summary>
+            <param name="pActivosFijos">Entidad Activos Fijos</param>
+            <returns>Lista Activos Fijos</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.ActivosFijosBL.GetAllActivosFijos">
+            <summary>
+            Obtiene Activos Fijos 
+            </summary>
+            <returns>Lista Activos Fijos</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Concrete.AreaPersonaBL">
+            <summary>
+            Clase Area Persona capa de negocios
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.AreaPersonaBL.AddAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Agrega Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area Persona</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.AreaPersonaBL.DeleteAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Borra Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area Persona</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.AreaPersonaBL.EditAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Edita Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area Persona</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.AreaPersonaBL.GetAllAreaPersona">
+            <summary>
+            Obtiene Area o Persona
+            </summary>
+            <param name="pAreaPersona">Entidad Area Persona</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.AreaPersonaBL.GetAreaAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
+            <summary>
+            Obtiene Area o Persona por filtro
+            </summary>
+            <param name="pAreaPersona">Entidad Area Persona</param>
+            <returns>Lista Area o Persona </returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Concrete.CiudadBL">
+            <summary>
+            Clase Ciudad capa de negocios
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.CiudadBL.AddCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Agrega Ciudad
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.CiudadBL.DeleteCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Borra Ciudad
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.CiudadBL.EditCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Edita Ciudad
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.CiudadBL.GetAllCiudad">
+            <summary>
+            Obtiene todas las Ciudades
+            </summary>
+            <returns>Lista Ciudad</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.CiudadBL.GetCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
+            <summary>
+            Obtiene todas las Ciudades
+            </summary>
+            <param name="pCiudad">Entidad Ciudad</param>
+            <returns>Lista Ciudad</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Concrete.EstadoActualBL">
+            <summary>
+            Clase Estado Actual Capa de negocios
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.EstadoActualBL.AddEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Agrega Estado Actual
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.EstadoActualBL.DeleteEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Borra Estado Actual
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.EstadoActualBL.EditEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Edita Estado Actual
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.EstadoActualBL.GetAllEstadoActual">
+            <summary>
+            Obtiene todos los Estados Actuales
+            </summary>
+            <returns>Lista Estado Actual</returns>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.BusinessLayer.Concrete.EstadoActualBL.GetEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
+            <summary>
+            Obtiene Estado Actual por filtro
+            </summary>
+            <param name="pEstadoActual">Entidad Estado Actual</param>
+            <returns>Lista Estado Actual</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Interface.IActivosFijosBL">
+            <summary>
+            Interface Firma Activos fijos
+            </summary>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Interface.IAreaPersonaBL">
+            <summary>
+            Interface Firma Area Personal
+            </summary>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Interface.ICiudadBL">
+            <summary>
+            Interface Firma Ciudad
+            </summary>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.BusinessLayer.Interface.IEstadoActualBL">
+            <summary>
+            Interfaz Firma Estado Actual
+            </summary>
+        </member>
+    </members>
+</doc>

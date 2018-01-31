@@ -6,18 +6,32 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
+    /// <summary>
+    /// Controlador Activos Fijos
+    /// </summary>
+    /// 
+    
     [AgregarLog]
     public class ActivosFijosController : ApiController
     {
-        IActivosFijosBL ActivosFijosBL;
+        /// <summary>
+        /// Instancia Activos Fijos
+        /// </summary>
+        private IActivosFijosBL ActivosFijosBL;
 
+        /// <summary>
+        /// Constructor con injección de dependencia
+        /// </summary>
+        /// <param name="ActivosFijosBL">Interfaz Activos Fijos</param>
         public ActivosFijosController(IActivosFijosBL ActivosFijosBL)
         {
             this.ActivosFijosBL = ActivosFijosBL;
         }
+
         /// <summary>
         /// Agrega Activos Fijos 
         /// </summary>
@@ -25,10 +39,30 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/AddActivosFijos")]
-        public bool AddActivosFijos(ActivosFijos pActivosFijos)
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage AddActivosFijos(ActivosFijos pActivosFijos)
         {
-            return  ActivosFijosBL.AddActivosFijos(pActivosFijos);
+            try
+            {
+                var r = ActivosFijosBL.AddActivosFijos(pActivosFijos);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Borra todos los Activos Fijos 
         /// </summary>
@@ -36,10 +70,30 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/DeleteActivosFijos")]
-        public bool DeleteActivosFijos(ActivosFijos pActivosFijos)
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage DeleteActivosFijos(ActivosFijos pActivosFijos)
         {
-            return  ActivosFijosBL.DeleteActivosFijos(pActivosFijos);
+            try
+            {
+                var r = ActivosFijosBL.DeleteActivosFijos(pActivosFijos);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Edita todos los Activos Fijos 
         /// </summary>
@@ -47,10 +101,30 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/EditActivosFijos")]
-        public bool EditActivosFijos(ActivosFijos pActivosFijos)
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage EditActivosFijos(ActivosFijos pActivosFijos)
         {
-            return  ActivosFijosBL.EditActivosFijos(pActivosFijos);
+            try
+            {
+                var r = ActivosFijosBL.EditActivosFijos(pActivosFijos);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Obtiene todos los Activos Fijos por filtro
         /// </summary>
@@ -58,19 +132,56 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>Lista Activos Fijos</returns>
         [HttpPost]
         [Route("api/GetActivosFijos")]
-        public IEnumerable<ActivosFijos> GetActivosFijos(ActivosFijos pActivosFijos)
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage GetActivosFijos(ActivosFijos pActivosFijos)
         {
-            return  ActivosFijosBL.GetActivosFijos(pActivosFijos);
+            try
+            {
+                var r = ActivosFijosBL.GetActivosFijos(pActivosFijos);
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message = string.Format("No se retornaron datos");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         ///  Obtiene todos los Activos Fijos
         /// </summary>
         /// <returns>Lista Activos Fijos</returns>
         [HttpGet]
         [Route("api/GetAllActivosFijos")]
-        public IEnumerable<ActivosFijos> GetAllActivosFijos()
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public HttpResponseMessage GetAllActivosFijos()
         {
-            return  ActivosFijosBL.GetAllActivosFijos();
+            try
+            {
+                var r = ActivosFijosBL.GetAllActivosFijos();
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message = string.Format("No se retornaron datos");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
     }
 }

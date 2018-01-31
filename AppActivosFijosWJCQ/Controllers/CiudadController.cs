@@ -7,14 +7,26 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
+    /// <summary>
+    /// Controlador Ciudad
+    /// </summary>
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [AgregarLog]
     public class CiudadController : ApiController
     {
+        /// <summary>
+        /// Instancia Ciudad 
+        /// </summary>
         ICiudadBL CiudadBL;
 
+        /// <summary>
+        /// Constructor con injección de dependencia
+        /// </summary>
+        /// <param name="CiudadBL">Interfaz Ciudad</param>
         public CiudadController(ICiudadBL CiudadBL)
         {
             this.CiudadBL = CiudadBL;
@@ -27,10 +39,29 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/AddCiudad")]
-        public bool AddCiudad(Ciudad pCiudad)
+        public HttpResponseMessage AddCiudad(Ciudad pCiudad)
         {
-            return CiudadBL.AddCiudad(pCiudad);
+            try
+            {
+                var r = CiudadBL.AddCiudad(pCiudad);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Borra Ciudad
         /// </summary>
@@ -38,10 +69,29 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/DeleteCiudad")]
-        public bool DeleteCiudad(Ciudad pCiudad)
+        public HttpResponseMessage DeleteCiudad(Ciudad pCiudad)
         {
-            return  CiudadBL.DeleteCiudad(pCiudad);
+            try
+            {
+                var r = CiudadBL.DeleteCiudad(pCiudad);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Edita Ciudad
         /// </summary>
@@ -49,20 +99,57 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/EditCiudad")]
-        public bool EditCiudad(Ciudad pCiudad)
+        public HttpResponseMessage EditCiudad(Ciudad pCiudad)
         {
-            return  CiudadBL.EditCiudad(pCiudad);
+            try
+            {
+                var r = CiudadBL.EditCiudad(pCiudad);
+                if (r)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, true);
+                }
+                else
+                {
+                    var message =
+                        string.Format("Se genero un error puede que no se ingresaron todos los datos del formulario");
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Obtiene Ciudades
         /// </summary>
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/GetAllCiudad")]
-        public IEnumerable<Ciudad> GetAllCiudad()
+        public HttpResponseMessage GetAllCiudad()
         {
-            return  CiudadBL.GetAllCiudad();
+            try
+            {
+                var r = CiudadBL.GetAllCiudad();
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message = string.Format("No se retornaron datos");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
+
         /// <summary>
         /// Obtiene Ciudades
         /// </summary>
@@ -70,10 +157,26 @@ namespace AppActivosFijosWJCQ.Controllers
         /// <returns>true y false según resultado</returns>
         [HttpPost]
         [Route("api/GetCiudad")]
-        public IEnumerable<Ciudad> GetCiudad(Ciudad pCiudad)
+        public HttpResponseMessage GetCiudad(Ciudad pCiudad)
         {
-            return  CiudadBL.GetCiudad(pCiudad);
+            try
+            {
+                var r = CiudadBL.GetCiudad(pCiudad);
+                if (r.Any())
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, r);
+                }
+                else
+                {
+                    var message = string.Format("No se retornaron datos");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
+            }
+            catch (Exception)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError,
+                    "Se genero un error en el servidor");
+            }
         }
-
     }
 }

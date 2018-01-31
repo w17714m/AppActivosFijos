@@ -6,8 +6,15 @@ using System.Web.Mvc;
 
 namespace AppActivosFijosWJCQ.Controllers
 {
+    /// <summary>
+    /// Página Inicial
+    /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// Página inicial
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";

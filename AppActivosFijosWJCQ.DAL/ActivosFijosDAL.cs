@@ -6,32 +6,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace AppActivosFijosWJCQ.DAL
 {
+    /// <summary>
+    /// Clase de acceso a datos que permite la administración de activos fijos
+    /// </summary>
     public class ActivosFijosDAL
     {
+
+        /// <summary>
+        /// Constructor Activos Fijos
+        /// </summary>
         public ActivosFijosDAL()
         {
 
         }
+
+        /// <summary>
+        /// Agrega activos fijos
+        /// </summary>
+
         public bool AddActivosFijos(ActivosFijos pActivosFijos)
         {
             try
             {
                 using (var db = new ActivosFijosContext())
                 {
+                    //var estadoActual = db.EstadoActual.FirstOrDefault(x => x.Id_EstadoActual == pActivosFijos.Id_EstadoActual);
+                    //var areaPersona= db.AreaPersona.FirstOrDefault(x => x.Id_AreaPersona== pActivosFijos.Id_AreaPersona);
+                    //pActivosFijos.AreaPersona = areaPersona;
+                    //pActivosFijos.EstadoActual = estadoActual;
                     db.ActivosFijos.Add(pActivosFijos);
                     db.SaveChanges();
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
         }
-
+        /// <summary>
+        /// Borra Activos Fijos
+        /// </summary>
+        /// <param name="pActivosFijos">Entidad Activos Fijos</param>
+        /// <returns>true o false según el resultado</returns>
         public bool DeleteActivosFijos(ActivosFijos pActivosFijos)
         {
             try
@@ -48,7 +69,11 @@ namespace AppActivosFijosWJCQ.DAL
                 return false;
             }
         }
-
+        /// <summary>
+        /// Edita Activos Fijos
+        /// </summary>
+        /// <param name="pActivosFijos">Entidad Activos Fijos</param>
+        /// <returns>true o false según el resultado</returns>
         public bool EditActivosFijos(ActivosFijos pActivosFijos)
         {
             try
@@ -68,16 +93,22 @@ namespace AppActivosFijosWJCQ.DAL
                     query.ValorCompra = pActivosFijos.ValorCompra;
                     query.FechaCompra = pActivosFijos.FechaCompra == null ? query.FechaCompra : pActivosFijos.FechaCompra;
                     query.FechaBaja = pActivosFijos.FechaBaja == null ? query.FechaBaja : pActivosFijos.FechaBaja;
+                    query.AreaPersona = pActivosFijos.AreaPersona==null? query.AreaPersona:db.AreaPersona.Where(x => x.Id_AreaPersona == pActivosFijos.AreaPersona.Id_AreaPersona).FirstOrDefault();
+                    query.EstadoActual = pActivosFijos.EstadoActual == null ? query.EstadoActual : db.EstadoActual.Where(x => x.Id_EstadoActual== pActivosFijos.EstadoActual.Id_EstadoActual).FirstOrDefault();
                     db.SaveChanges();
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
         }
-
+        /// <summary>
+        /// Obtiene Activos Fijos por filtro
+        /// </summary>
+        /// <param name="pActivosFijos">Entidad Activos Fijos</param>
+        /// <returns>Retorna lista tipo ActivosFijos</returns>
         public List<ActivosFijos> GetActivosFijos(ActivosFijos pActivosFijos)
         {
             try
@@ -86,18 +117,10 @@ namespace AppActivosFijosWJCQ.DAL
 
                 var vPredicado = PredicateBuilder.New<ActivosFijos>();
 
-                vPredicado.Or(x => x.id_ActivosFijos==pActivosFijos.id_ActivosFijos);
-                vPredicado.Or(x => x.Nombre.Contains(pActivosFijos.Nombre));
-                vPredicado.Or(x => x.Descripcion.Contains(pActivosFijos.Descripcion));
-                vPredicado.Or(x => x.Tipo.Contains(pActivosFijos.Tipo));
-                vPredicado.Or(x => x.Serial.Contains(pActivosFijos.Serial));
-                vPredicado.Or(x => x.NumeroInterno.Contains(pActivosFijos.NumeroInterno));
-                vPredicado.Or(x => x.Peso == pActivosFijos.Peso);
-                vPredicado.Or(x => x.Alto == pActivosFijos.Alto);
-                vPredicado.Or(x => x.Ancho == pActivosFijos.Ancho);
-                vPredicado.Or(x => x.Largo == pActivosFijos.Largo);
-                vPredicado.Or(x => x.FechaCompra == pActivosFijos.FechaCompra);
-                vPredicado.Or(x => x.FechaBaja == pActivosFijos.FechaBaja);
+                if (pActivosFijos.Tipo != null) vPredicado.Or(x => x.Tipo.Contains(pActivosFijos.Tipo));
+                if (pActivosFijos.Serial != null) vPredicado.Or(x => x.Serial.Contains(pActivosFijos.Serial));
+                if (!string.IsNullOrEmpty(pActivosFijos.FechaCompra)  ) vPredicado.Or(x => x.FechaCompra == pActivosFijos.FechaCompra);
+                
 
                 using (var db = new ActivosFijosContext())
                 {
@@ -105,12 +128,15 @@ namespace AppActivosFijosWJCQ.DAL
                 }
                 return vActivosFijos;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }
         }
-
+        /// <summary>
+        /// Retorna todos los activos fijos
+        /// </summary>
+        /// <returns>Retorna lista tipo ActivosFijos</returns>
         public List<ActivosFijos> GetAllActivosFijos()
         {
             try

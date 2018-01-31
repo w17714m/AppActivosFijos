@@ -8,6 +8,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppActivosFijosWJCQ.Entity.Model
 {
+    /// <summary>
+    /// Clase Ciudad
+    /// </summary>
     [Table("Ciudad", Schema = "public")]
     public class Ciudad
     {

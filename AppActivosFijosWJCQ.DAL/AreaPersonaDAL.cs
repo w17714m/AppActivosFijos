@@ -1,26 +1,40 @@
 ﻿using AppActivosFijosWJCQ.Entity;
 using AppActivosFijosWJCQ.Entity.Model;
+using System.Data.Entity;
 using LinqKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AppActivosFijosWJCQ.DAL
 {
+    /// <summary>
+    /// Clase Area o Persona de Acceso a Datos
+    /// </summary>
     public class AreaPersonaDAL
     {
+        /// <summary>
+        /// Constructor Area o Persona de Acceso a Datos
+        /// </summary>
         public AreaPersonaDAL()
         {
             
         }
+
+        /// <summary>
+        /// Agrega una nueva Area o Persona
+        /// </summary>
+        /// <param name="pAreaPersona">Entidad Area o persona</param>
+        /// <returns>true o false según relsultado</returns>
         public bool AddAreaPersona(AreaPersona pAreaPersona)
         {
             try
             {
                 using (var db = new ActivosFijosContext())
                 {
+                    int idCiudad = pAreaPersona.Ciudad.FirstOrDefault().Id_Ciudad;
+                    pAreaPersona.Ciudad = db.Ciudad.Where(x => x.Id_Ciudad == idCiudad).ToList();
                     db.AreaPersona.Add(pAreaPersona);
                     db.SaveChanges();
                 }
@@ -31,7 +45,11 @@ namespace AppActivosFijosWJCQ.DAL
                 return false;
             }
         }
-
+        /// <summary>
+        /// Borra una nueva Area o Persona
+        /// </summary>
+        /// <param name="pAreaPersona">Entidad Area o persona</param>
+        /// <returns>true o false según relsultado</returns>
         public bool DeleteAreaPersona(AreaPersona pAreaPersona)
         {
             try
@@ -48,7 +66,11 @@ namespace AppActivosFijosWJCQ.DAL
                 return false;
             }
         }
-
+        /// <summary>
+        /// Edita una nueva Area o Persona
+        /// </summary>
+        /// <param name="pAreaPersona">Entidad Area o persona</param>
+        /// <returns>true o false según relsultado</returns>
         public bool EditAreaPersona(AreaPersona pAreaPersona)
         {
             try
@@ -67,6 +89,11 @@ namespace AppActivosFijosWJCQ.DAL
             }
         }
 
+
+        /// <summary>
+        /// Obtiene todas las Areas o Personas
+        /// </summary>
+        /// <returns>Lista AreaPersona</returns>
         public List<AreaPersona> GetAllAreaPersona()
         {
 
@@ -85,7 +112,11 @@ namespace AppActivosFijosWJCQ.DAL
                 return null;
             }
         }
-
+        /// <summary>
+        /// Obtiene una nueva Area o Persona
+        /// </summary>
+        /// <param name="pAreaPersona">Entidad Area o persona</param>
+        /// <returns>Lista de Areas o Personas</returns>
         public List<AreaPersona> GetAreaAreaPersona(AreaPersona pAreaPersona)
         {
             try

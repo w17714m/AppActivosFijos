@@ -8,6 +8,9 @@ using AppActivosFijosWJCQ.Entity.Model;
 
 namespace AppActivosFijosWJCQ.BusinessLayer.Interface
 {
+    /// <summary>
+    /// Interface Firma Area Personal
+    /// </summary>
     public interface IAreaPersonaBL
     {
         List<AreaPersona> GetAllAreaPersona();

@@ -6,16 +6,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace AppActivosFijosWJCQ.DAL
 {
+    /// <summary>
+    /// Clase Ciudad de Acceso a Datos
+    /// </summary>
     public class CiudadDAL
     {
+        /// <summary>
+        /// Constructor Ciudad de Acceso a Datos
+        /// </summary>
         public CiudadDAL()
         {
 
         }
 
+        /// <summary>
+        /// Agrega una nueva Ciudad
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad</param>
+        /// <returns>true o false según resultado</returns>
         public bool AddCiudad(Ciudad pCiudad)
         {
             try
@@ -33,6 +45,11 @@ namespace AppActivosFijosWJCQ.DAL
             }
         }
 
+        /// <summary>
+        /// Borra Ciudad
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad</param>
+        /// <returns>true o false según resultado</returns>
         public bool DeleteCiudad(Entity.Model.Ciudad pCiudad)
         {
             try
@@ -50,6 +67,11 @@ namespace AppActivosFijosWJCQ.DAL
             }
         }
 
+        /// <summary>
+        /// Edita Ciudad
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad</param>
+        /// <returns>true o false según resultado</returns>
         public bool EditCiudad(Entity.Model.Ciudad pCiudad)
         {
             try
@@ -68,6 +90,11 @@ namespace AppActivosFijosWJCQ.DAL
             }
         }
 
+
+        /// <summary>
+        /// Obtiene todas las ciudades
+        /// </summary>
+        /// <returns>Lista De ciudades</returns>
         public List<Entity.Model.Ciudad> GetAllCiudad()
         {
             try
@@ -86,6 +113,12 @@ namespace AppActivosFijosWJCQ.DAL
             }
         }
 
+
+        /// <summary>
+        /// Obtiene Ciudades por filtro
+        /// </summary>
+        /// <param name="pCiudad">Entidad Ciudad</param>
+        /// <returns>Lista de Ciudades</returns>
         public List<Entity.Model.Ciudad> GetCiudad(Ciudad pCiudad)
         {
             try

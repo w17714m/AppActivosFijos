@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AppActivosFijosWJCQ.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:AppActivosFijosWJCQ.Entity.Model.ActivosFijos">
+            <summary>
+            Clase de activos fijos
+            </summary>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.Entity.Model.AreaPersona">
+            <summary>
+            Clase Area Persona
+            </summary>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.Entity.Model.Ciudad">
+            <summary>
+            Clase Ciudad
+            </summary>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.Entity.Model.EstadoActual">
+            <summary>
+            Clase Estado Actual
+            </summary>
+        </member>
+    </members>
+</doc>

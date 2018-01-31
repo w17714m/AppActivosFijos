@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AppActivosFijosWJCQ.BusinessLayer.Interface
 {
+    /// <summary>
+    /// Interface Firma Ciudad
+    /// </summary>
     public interface ICiudadBL
     {
         List<Ciudad> GetAllCiudad();

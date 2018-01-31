@@ -8,6 +8,9 @@ using AppActivosFijosWJCQ.Entity.Model;
 
 namespace AppActivosFijosWJCQ.BusinessLayer.Interface
 {
+    /// <summary>
+    /// Interface Firma Activos fijos
+    /// </summary>
     public interface IActivosFijosBL
     {
         List<ActivosFijos> GetAllActivosFijos();

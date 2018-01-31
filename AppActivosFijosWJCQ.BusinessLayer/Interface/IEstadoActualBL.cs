@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AppActivosFijosWJCQ.BusinessLayer.Interface
 {
+    /// <summary>
+    /// Interfaz Firma Estado Actual
+    /// </summary>
     public interface IEstadoActualBL
     {
         List<EstadoActual> GetAllEstadoActual();

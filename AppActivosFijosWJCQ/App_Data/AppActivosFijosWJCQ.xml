@@ -481,6 +481,23 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:AppActivosFijosWJCQ.Controllers.ActivosFijosController">
+            <summary>
+            Controlador Activos Fijos
+            </summary>
+            
+        </member>
+        <member name="F:AppActivosFijosWJCQ.Controllers.ActivosFijosController.ActivosFijosBL">
+            <summary>
+            Instancia Activos Fijos
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.Controllers.ActivosFijosController.#ctor(AppActivosFijosWJCQ.BusinessLayer.Interface.IActivosFijosBL)">
+            <summary>
+            Constructor con injección de dependencia
+            </summary>
+            <param name="ActivosFijosBL">Interfaz Activos Fijos</param>
+        </member>
         <member name="M:AppActivosFijosWJCQ.Controllers.ActivosFijosController.AddActivosFijos(AppActivosFijosWJCQ.Entity.Model.ActivosFijos)">
             <summary>
             Agrega Activos Fijos 
@@ -515,6 +532,22 @@
             </summary>
             <returns>Lista Activos Fijos</returns>
         </member>
+        <member name="T:AppActivosFijosWJCQ.Controllers.AreaPersonaController">
+            <summary>
+            Controlador Area Personal
+            </summary>
+        </member>
+        <member name="F:AppActivosFijosWJCQ.Controllers.AreaPersonaController.AreaPersonaBL">
+            <summary>
+            Instancia Area Personal
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.Controllers.AreaPersonaController.#ctor(AppActivosFijosWJCQ.BusinessLayer.Interface.IAreaPersonaBL)">
+            <summary>
+            Constructor con injección de dependencia
+            </summary>
+            <param name="AreaPersonaBL">Interfaz Area personal</param>
+        </member>
         <member name="M:AppActivosFijosWJCQ.Controllers.AreaPersonaController.AddAreaPersona(AppActivosFijosWJCQ.Entity.Model.AreaPersona)">
             <summary>
             Agrega AreaPersona
@@ -548,6 +581,22 @@
             </summary>
             <param name="pAreaPersona">Entidad Area Persona </param>
             <returns>Lista Area Persona</returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.Controllers.CiudadController">
+            <summary>
+            Controlador Ciudad
+            </summary>
+        </member>
+        <member name="F:AppActivosFijosWJCQ.Controllers.CiudadController.CiudadBL">
+            <summary>
+            Instancia Ciudad 
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.Controllers.CiudadController.#ctor(AppActivosFijosWJCQ.BusinessLayer.Interface.ICiudadBL)">
+            <summary>
+            Constructor con injección de dependencia
+            </summary>
+            <param name="CiudadBL">Interfaz Ciudad</param>
         </member>
         <member name="M:AppActivosFijosWJCQ.Controllers.CiudadController.AddCiudad(AppActivosFijosWJCQ.Entity.Model.Ciudad)">
             <summary>
@@ -587,6 +636,18 @@
             <summary>
             Controllador para la entidad Estado Actual
             </summary>
+            
+        </member>
+        <member name="F:AppActivosFijosWJCQ.Controllers.EstadoActualController.EstadoActualBL">
+            <summary>
+            Instancia Estado Actual
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.Controllers.EstadoActualController.#ctor(AppActivosFijosWJCQ.BusinessLayer.Interface.IEstadoActualBL)">
+            <summary>
+            Constructor Con injección de dependencia
+            </summary>
+            <param name="EstadoActualBL">Interfaz Estado Actual</param>
         </member>
         <member name="M:AppActivosFijosWJCQ.Controllers.EstadoActualController.AddEstadoActual(AppActivosFijosWJCQ.Entity.Model.EstadoActual)">
             <summary>
@@ -621,6 +682,22 @@
             </summary>
             <param name="pEstadoActual">Entidad estado Actual</param>
             <returns></returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.Controllers.HomeController">
+            <summary>
+            Página Inicial
+            </summary>
+        </member>
+        <member name="M:AppActivosFijosWJCQ.Controllers.HomeController.Index">
+            <summary>
+            Página inicial
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AppActivosFijosWJCQ.Controllers.TokenController">
+            <summary>
+            Controlador encargado de generar tokens
+            </summary>
         </member>
         <member name="M:AppActivosFijosWJCQ.Controllers.TokenController.GetToken">
             <summary>
